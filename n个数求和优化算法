@@ -1,0 +1,28 @@
+#include <iostream>
+#define n 8
+using namespace std;
+//创建递归函数
+void func(int m,int *a)
+{
+    if(m==1)
+        return;
+    else
+    {
+        for(int i=0;i<m/2;i++)
+        a[i]+=a[m-1-i];
+        m/=2;
+        func(m,a);
+    }
+}
+
+int main()
+{
+    int num[n];
+    for(int i=0;i<n;i++)
+    {
+        num[i]=i;
+    }
+    func(n,num);//调用递归函数
+    cout<<num[0]<<endl;
+    return 0;
+}
